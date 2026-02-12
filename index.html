@@ -1,0 +1,1557 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>German A1–B2 Mastery</title>
+<style>
+    /* Progress Bar */
+.progress-container {
+  width: 100%;
+  background: #ddd;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 25px;
+  width: 0%;
+  background: linear-gradient(90deg, #dd0000, #ffce00);
+  text-align: center;
+  line-height: 25px;
+  color: black;
+  font-weight: bold;
+  transition: width 0.5s ease-in-out;
+}
+
+/* ===== German Flag Overlay ===== */
+.flag-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+      to bottom,
+      #000000 33%,
+      #dd0000 33%,
+      #dd0000 66%,
+      #ffce00 66%
+  );
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* ===== Box ===== */
+.flag-box {
+  background: rgba(0,0,0,0.85);
+  padding: 50px;
+  border-radius: 20px;
+  text-align: center;
+  color: white;
+  width: 400px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  animation: scaleUp 0.6s ease;
+}
+
+.flag-box h1 {
+  color: #ffce00;
+  font-size: 28px;
+}
+
+.flag-box p {
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+.creator {
+  color: #dd0000;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* ===== Button ===== */
+.flag-box button {
+  margin-top: 20px;
+  padding: 12px 30px;
+  font-size: 16px;
+  background: #ffce00;
+  color: black;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.flag-box button:hover {
+  background: #dd0000;
+  color: white;
+}
+
+/* ===== Animations ===== */
+@keyframes fadeIn {
+  from {opacity:0;}
+  to {opacity:1;}
+}
+
+@keyframes scaleUp {
+  from {transform:scale(0.8);}
+  to {transform:scale(1);}
+}
+
+/* Popup Overlay */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg,#667eea,#764ba2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+/* Popup Box */
+.popup-box {
+  background: white;
+  padding: 40px;
+  border-radius: 15px;
+  text-align: center;
+  width: 350px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+  animation: scaleUp 0.5s ease;
+}
+
+.popup-box h1 {
+  color: #764ba2;
+}
+
+.popup-box button {
+  margin-top: 20px;
+  padding: 10px 25px;
+  font-size: 16px;
+  background: #764ba2;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.popup-box button:hover {
+  background: #5a3aa8;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {opacity:0;}
+  to {opacity:1;}
+}
+
+@keyframes scaleUp {
+  from {transform:scale(0.8);}
+  to {transform:scale(1);}
+}
+
+
+
+    /* ===== Collapsible Lesson Style ===== */
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin:0;
+    background:linear-gradient(135deg,#1e3c72,#2a5298);
+}
+
+header {
+    background:white;
+    padding:25px;
+    text-align:center;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+nav {
+    background:white;
+    padding:12px;
+    text-align:center;
+    box-shadow:0 3px 8px rgba(0,0,0,0.1);
+}
+
+nav a {
+    margin:12px;
+    text-decoration:none;
+    font-weight:bold;
+    color:#1e3c72;
+    cursor:pointer;
+}
+
+section {
+    background:white;
+    margin:25px;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.15);
+}
+
+table {
+    width:100%;
+    border-collapse:collapse;
+    margin:15px 0;
+}
+
+th, td {
+    border:1px solid #ddd;
+    padding:10px;
+    text-align:center;
+}
+
+th {
+    background:#1e3c72;
+    color:white;
+}
+
+tr:nth-child(even){
+    background:#f4f6fa;
+}
+
+.collapsible {
+    background-color:#2a5298;
+    color:white;
+    cursor:pointer;
+    padding:14px;
+    width:100%;
+    border:none;
+    text-align:left;
+    border-radius:8px;
+    margin-top:15px;
+    font-size:16px;
+}
+
+.collapsible:hover {
+    background-color:#1e3c72;
+}
+.collapsible {
+    background-color:#764ba2;
+    color:white;
+    cursor:pointer;
+    padding:12px;
+    width:100%;
+    border:none;
+    text-align:left;
+    outline:none;
+    font-size:16px;
+    border-radius:6px;
+    margin-top:15px;
+    transition:0.3s;
+}
+
+.collapsible:hover {
+    background-color:#5a3580;
+}
+
+.collapsible:after {
+    content:'+';
+    float:right;
+    font-weight:bold;
+}
+
+.collapsible.active:after {
+    content:'−';
+}
+
+.content {
+    max-height:0;
+    overflow:hidden;
+    transition:max-height 0.4s ease-out;
+    background:white;
+    padding:0 15px;
+    border-radius:0 0 8px 8px;
+}
+    table {
+width:100%;
+border-collapse:collapse;
+margin:15px 0;
+}
+
+th, td {
+border:1px solid #ccc;
+padding:8px;
+text-align:center;
+}
+
+th {
+background:#764ba2;
+color:white;
+}
+
+tr:nth-child(even){
+background:#f2f2f2;
+}
+
+body {font-family: Arial; margin:0; background:linear-gradient(135deg,#667eea,#764ba2);}
+header {background:white; padding:20px; text-align:center;}
+nav {background:#fff; padding:10px; text-align:center;}
+nav a {margin:10px; text-decoration:none; font-weight:bold; color:#007bff; cursor:pointer;}
+section {background:white; margin:20px; padding:20px; border-radius:10px;}
+.level {display:none;}
+.active {display:block;}
+.subnav a {margin:8px; cursor:pointer; color:#28a745; font-weight:bold;}
+.vocab-box {background:#f3f3f3; padding:15px; border-radius:8px; margin-top:10px;}
+.lesson-title {color:#764ba2; margin-top:30px;}
+hr {margin:20px 0;}
+</style>
+</head>
+
+<body>
+<!-- German Flag Landing Page -->
+<div id="landingPopup" class="flag-overlay">
+  <div class="flag-box">
+    <h1>German A1–B2 Mastery</h1>
+    <p>CEFR Structured Learning Platform</p>
+    <p class="creator">Created by Aryan Birajdar</p>
+
+    <button onclick="enterSite()">Enter Platform</button>
+  </div>
+</div>
+
+<header>
+<h1>German A1–B2 Mastery</h1>
+<p>Complete Structured Course</p>
+</header>
+
+<nav>
+    <a onclick="showSection('dashboard')">Dashboard</a>
+<a onclick="showSection('mocktests')">Free Mock Tests</a>
+<a onclick="showSection('home')">Home</a>
+<a onclick="showSection('a1')">A1 Lessons</a>
+<a onclick="showSection('a2b1')">A2 / B1 Lessons</a>
+<a onclick="showSection('vocabulary')">Vocabulary</a>
+<a onclick="showSection('about')">About</a>
+
+</nav>
+<section id="about" class="level">
+
+<h2>About the Creator</h2>
+
+<div style="background:#f4f6fa;padding:20px;border-radius:10px;">
+<p><b>Creator:</b> Aryan Birajdar</p>
+<p><b>Project:</b> German A1–B2 Mastery Platform</p>
+<p>
+This platform was designed and developed independently to provide structured,
+CEFR-aligned German learning resources including lessons, vocabulary, and mock exams.
+</p>
+
+<p>
+Mission: To make structured German learning accessible and affordable for everyone.
+</p>
+
+</div>
+
+</section>
+
+<section id="dashboard" class="level">
+
+
+<h2>Student Dashboard</h2>
+
+<div style="background:#f4f6fa;padding:20px;border-radius:10px;">
+<p><b>Name:</b> <span id="studentName">Guest</span></p>
+<p><b>A1 Mock Score:</b> <span id="a1Score">Not Attempted</span></p>
+<p><b>A2/B1 Mock Score:</b> <span id="b1Score">Not Attempted</span></p>
+<p><b>Total Tests Attempted:</b> <span id="totalTests">0</span></p>
+
+<button onclick="resetProgress()">Reset Progress</button>
+</div>
+
+</section>
+<section id="mocktests" class="level">
+
+<h2>Full 20 Question Mock Tests</h2>
+
+<!-- ================= A1 MOCK ================= -->
+<h3>A1 Full Mock Test (20 Questions)</h3>
+
+<div id="a1test">
+
+<form id="a1form">
+
+<!-- 1-5 Basic Grammar -->
+<p>1. Ich ___ Deutsch.</p>
+<input type="radio" name="a1q1" value="1"> lerne<br>
+<input type="radio" name="a1q1" value="0"> lernst<br>
+
+<p>2. Er ___ müde.</p>
+<input type="radio" name="a1q2" value="1"> ist<br>
+<input type="radio" name="a1q2" value="0"> sind<br>
+
+<p>3. Wir ___ Pizza.</p>
+<input type="radio" name="a1q3" value="1"> essen<br>
+<input type="radio" name="a1q3" value="0"> isst<br>
+
+<p>4. Der Ball ist ___ Tisch.</p>
+<input type="radio" name="a1q4" value="1"> auf dem<br>
+<input type="radio" name="a1q4" value="0"> auf den<br>
+
+<p>5. Ich habe ___ Hund.</p>
+<input type="radio" name="a1q5" value="1"> einen<br>
+<input type="radio" name="a1q5" value="0"> ein<br>
+
+<!-- 6-10 Modal & Word Order -->
+<p>6. Ich ___ Deutsch lernen.</p>
+<input type="radio" name="a1q6" value="1"> möchte<br>
+<input type="radio" name="a1q6" value="0"> möchte lerne<br>
+
+<p>7. Morgen ___ ich Fußball.</p>
+<input type="radio" name="a1q7" value="1"> spiele<br>
+<input type="radio" name="a1q7" value="0"> ich spiele<br>
+
+<p>8. Sie kommt ___ Indien.</p>
+<input type="radio" name="a1q8" value="1"> aus<br>
+<input type="radio" name="a1q8" value="0"> von<br>
+
+<p>9. Das ist ___ Auto.</p>
+<input type="radio" name="a1q9" value="1"> mein<br>
+<input type="radio" name="a1q9" value="0"> meinen<br>
+
+<p>10. Ich ___ Student.</p>
+<input type="radio" name="a1q10" value="1"> bin<br>
+<input type="radio" name="a1q10" value="0"> habe<br>
+
+<!-- 11-20 Mixed -->
+<p>11. ___ wohnst du?</p>
+<input type="radio" name="a1q11" value="1"> Wo<br>
+<input type="radio" name="a1q11" value="0"> Was<br>
+
+<p>12. Ich spiele mit ___ Freund.</p>
+<input type="radio" name="a1q12" value="1"> meinem<br>
+<input type="radio" name="a1q12" value="0"> meinen<br>
+
+<p>13. Wir ___ heute ins Kino.</p>
+<input type="radio" name="a1q13" value="1"> gehen<br>
+<input type="radio" name="a1q13" value="0"> geht<br>
+
+<p>14. Er hat ___ Buch.</p>
+<input type="radio" name="a1q14" value="1"> ein<br>
+<input type="radio" name="a1q14" value="0"> einen<br>
+
+<p>15. Das Kind spielt ___ Park.</p>
+<input type="radio" name="a1q15" value="1"> im<br>
+<input type="radio" name="a1q15" value="0"> in den<br>
+
+<p>16. Ich ___ gestern krank.</p>
+<input type="radio" name="a1q16" value="1"> war<br>
+<input type="radio" name="a1q16" value="0"> bin<br>
+
+<p>17. Du ___ Deutsch sprechen.</p>
+<input type="radio" name="a1q17" value="1"> kannst<br>
+<input type="radio" name="a1q17" value="0"> kann<br>
+
+<p>18. Wir fahren ___ Berlin.</p>
+<input type="radio" name="a1q18" value="1"> nach<br>
+<input type="radio" name="a1q18" value="0"> zu<br>
+
+<p>19. Das ist der Mann, ___ hier wohnt.</p>
+<input type="radio" name="a1q19" value="1"> der<br>
+<input type="radio" name="a1q19" value="0"> den<br>
+
+<p>20. Ich trinke ___ Kaffee.</p>
+<input type="radio" name="a1q20" value="1"> einen<br>
+<input type="radio" name="a1q20" value="0"> ein<br>
+
+</form>
+
+<button onclick="submitFullA1()">Submit A1 Test</button>
+<p id="a1result"></p>
+
+<hr>
+
+<!-- ================= A2/B1 MOCK ================= -->
+<h3>A2 / B1 Full Mock Test (20 Questions)</h3>
+
+<form id="b1form">
+
+<p>1. Ich lerne Deutsch, weil es wichtig ___.</p>
+<input type="radio" name="b1q1" value="1"> ist<br>
+<input type="radio" name="b1q1" value="0"> sind<br>
+
+<p>2. Wenn ich Zeit habe, ___ ich dich an.</p>
+<input type="radio" name="b1q2" value="1"> rufe<br>
+<input type="radio" name="b1q2" value="0"> rufst<br>
+
+<p>3. Er interessiert sich ___ Politik.</p>
+<input type="radio" name="b1q3" value="1"> für<br>
+<input type="radio" name="b1q3" value="0"> an<br>
+
+<p>4. Ich habe gestern lange ___.</p>
+<input type="radio" name="b1q4" value="1"> gearbeitet<br>
+<input type="radio" name="b1q4" value="0"> arbeiten<br>
+
+<p>5. Das Auto wird morgen ___.</p>
+<input type="radio" name="b1q5" value="1"> repariert<br>
+<input type="radio" name="b1q5" value="0"> reparieren<br>
+
+<!-- 6-20 Mixed Advanced -->
+<p>6. Obwohl er krank ist, ___ er zur Arbeit.</p>
+<input type="radio" name="b1q6" value="1"> geht<br>
+<input type="radio" name="b1q6" value="0"> gehen<br>
+
+<p>7. Ich freue mich ___ deinen Brief.</p>
+<input type="radio" name="b1q7" value="1"> über<br>
+<input type="radio" name="b1q7" value="0"> auf<br>
+
+<p>8. Das ist das Haus, ___ ich gekauft habe.</p>
+<input type="radio" name="b1q8" value="1"> das<br>
+<input type="radio" name="b1q8" value="0"> den<br>
+
+<p>9. Er hat gesagt, dass er morgen ___.</p>
+<input type="radio" name="b1q9" value="1"> kommt<br>
+<input type="radio" name="b1q9" value="0"> kommen<br>
+
+<p>10. Ich habe keine Zeit, ___ ich viel arbeiten muss.</p>
+<input type="radio" name="b1q10" value="1"> weil<br>
+<input type="radio" name="b1q10" value="0"> wenn<br>
+
+<!-- 11 -->
+<p>11. Wenn ich mehr Zeit hätte, ___ ich nach Deutschland fahren.</p>
+<input type="radio" name="b1q11" value="1"> würde<br>
+<input type="radio" name="b1q11" value="0"> werde<br>
+
+<!-- 12 -->
+<p>12. Ich habe das Buch gelesen, ___ du mir gegeben hast.</p>
+<input type="radio" name="b1q12" value="1"> das<br>
+<input type="radio" name="b1q12" value="0"> den<br>
+
+<!-- 13 -->
+<p>13. Er arbeitet, ___ er krank ist.</p>
+<input type="radio" name="b1q13" value="1"> obwohl<br>
+<input type="radio" name="b1q13" value="0"> weil<br>
+
+<!-- 14 -->
+<p>14. Ich interessiere mich ___ Geschichte.</p>
+<input type="radio" name="b1q14" value="1"> für<br>
+<input type="radio" name="b1q14" value="0"> mit<br>
+
+<!-- 15 -->
+<p>15. Das Problem muss schnell ___.</p>
+<input type="radio" name="b1q15" value="1"> gelöst werden<br>
+<input type="radio" name="b1q15" value="0"> lösen werden<br>
+
+<!-- 16 -->
+<p>16. Er hat vergessen, das Fenster ___.</p>
+<input type="radio" name="b1q16" value="1"> zu schließen<br>
+<input type="radio" name="b1q16" value="0"> schließen<br>
+
+<!-- 17 -->
+<p>17. Ich weiß nicht, ___ er kommt.</p>
+<input type="radio" name="b1q17" value="1"> ob<br>
+<input type="radio" name="b1q17" value="0"> dass<br>
+
+<!-- 18 -->
+<p>18. Sie spricht so leise, ___ niemand sie hört.</p>
+<input type="radio" name="b1q18" value="1"> dass<br>
+<input type="radio" name="b1q18" value="0"> weil<br>
+
+<!-- 19 -->
+<p>19. Das ist der Mann, mit ___ ich gesprochen habe.</p>
+<input type="radio" name="b1q19" value="1"> dem<br>
+<input type="radio" name="b1q19" value="0"> den<br>
+
+<!-- 20 -->
+<p>20. Ich habe viel gearbeitet, ___ ich müde war.</p>
+<input type="radio" name="b1q20" value="1"> obwohl<br>
+<input type="radio" name="b1q20" value="0"> wenn<br>
+</form>
+
+<button onclick="submitFullB1()">Submit A2/B1 Test</button>
+<p id="b1result"></p>
+
+</div>
+</section>
+
+
+<!-- HOME -->
+<section id="home" class="active">
+<h2>Welcome</h2>
+<p>This platform includes structured A1 lessons (1–15),A2/B1 Lessons(1-12) and Goethe vocabulary lists.</p>
+<a href="chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://www.goethe.de/pro/relaunch/prf/de/Goethe-Zertifikat_A1_Fit1_Wortliste.pdf">A1 GOETHE WORD LIST</a><br>
+<a href="https://www.goethe.de/pro/relaunch/prf/sr/Goethe-Zertifikat_A2_Wortliste.pdf">A2 GOETHE WORD LIST</a><br>
+<a href="https://www.goethe.de/pro/relaunch/prf/en/Goethe-Zertifikat_B1_Wortliste.pdf">B1 GOETHE WORD LIST</a>
+</section>
+
+<!-- ================= A1 LESSONS ================= -->
+
+<section id="a1" class="level">
+
+<h2>A1 Complete Lessons (Fully Explained)</h2>
+
+<!-- ================= LESSON 1 ================= -->
+<button class="collapsible">Lesson 1 – Basic Sentence Structure & Verb Conjugation</button>
+<div class="content">
+
+<!-- ALL LESSON CONTENT HERE -->
+
+</div>
+
+<b>What is a German sentence?</b><br>
+German basic sentence structure =  
+Subject + Verb + Object  
+
+Example:
+Ich trinke Tee.  
+(I drink tea.)
+
+<h4>Regular Verb Conjugation (-en verbs)</h4>
+
+<table>
+<tr>
+<th>Person</th>
+<th>Ending</th>
+<th>Example (lernen)</th>
+</tr>
+<tr><td>ich</td><td>-e</td><td>ich lerne</td></tr>
+<tr><td>du</td><td>-st</td><td>du lernst</td></tr>
+<tr><td>er/sie/es</td><td>-t</td><td>er lernt</td></tr>
+<tr><td>wir</td><td>-en</td><td>wir lernen</td></tr>
+<tr><td>ihr</td><td>-t</td><td>ihr lernt</td></tr>
+<tr><td>sie/Sie</td><td>-en</td><td>sie lernen</td></tr>
+</table>
+
+Example with "lernen":
+
+ich lerne  
+du lernst  
+er lernt  
+wir lernen  
+
+<b>Why is this important?</b><br>
+Because in German the verb MUST match the subject.
+
+<hr>
+<hr>
+
+<!-- ================= LESSON 2 ================= -->
+<button class="collapsible"> – Lesson 2 – German Alphabet & Pronunciation</button>
+<div class="content">
+
+<!-- ALL LESSON CONTENT HERE -->
+
+</div>
+
+<b>German Alphabet</b><br>
+Same as English (A–Z) + Ä, Ö, Ü, ß
+
+German is highly phonetic → You read what you see.
+
+<b>Important Letters:</b><br>
+J = y (Ja)  
+V = f (Vater)  
+R = guttural sound  
+ß = ss (Straße)
+
+<b>CH Sound:</b><br>
+After e, i, ä, ö, ü → soft (ich)  
+After a, o, u, au → hard (Bach)
+
+<b>"sch" = sh</b><br>
+Schule → school
+
+<b>Verb Root Rule:</b><br>
+Remove "-en" from infinitive  
+lernen → lern → ich lerne
+
+Practice: Write 5 sentences using sch, ch, umlauts.
+<hr>
+
+<!-- ================= LESSON 3 ================= -->
+<button class="collapsible">Lesson 3 – Numbers and Self Introduction</button>
+<div class="content">
+
+<!-- ALL LESSON CONTENT HERE -->
+
+</div>
+
+<b>0–12 (Memorize)</b><br>
+eins, zwei, drei, vier, fünf, sechs, sieben, acht, neun, zehn, elf, zwölf
+
+<b>13–19 → base + zehn</b><br>
+dreizehn, vierzehn, fünfzehn...
+
+<b>20–90 → base + zig</b><br>
+zwanzig, dreißig, vierzig...
+
+<b>21–99 Pattern:</b><br>
+Unit + und + Ten  
+21 = einundzwanzig (1 and 20)
+
+<b>100 = hundert</b><br>
+1000 = tausend
+
+Example:<br>
+3480 = dreitausendvierhundertachtzig
+
+<b>Self Introduction Template:</b><br>
+Ich bin ___.  
+Ich komme aus ___.  
+Ich wohne in ___.  
+Ich bin ___ Jahre alt.  
+Ich spreche ___.  
+Meine Hobbys sind ___.
+<hr>
+
+<!-- ================= LESSON 4 ================= -->
+<button class="collapsible">Lesson 4 – Haben and Sein</button>
+<div class="content">
+
+<!-- ALL LESSON CONTENT HERE -->
+
+</div>
+
+<h4>haben (to have)</h4>
+
+<table>
+<tr><th>Person</th><th>Form</th></tr>
+<tr><td>ich</td><td>habe</td></tr>
+<tr><td>du</td><td>hast</td></tr>
+<tr><td>er/sie/es</td><td>hat</td></tr>
+<tr><td>wir</td><td>haben</td></tr>
+<tr><td>ihr</td><td>habt</td></tr>
+<tr><td>sie/Sie</td><td>haben</td></tr>
+</table>
+
+<h4>sein (to be)</h4>
+
+<table>
+<tr><th>Person</th><th>Form</th></tr>
+<tr><td>ich</td><td>bin</td></tr>
+<tr><td>du</td><td>bist</td></tr>
+<tr><td>er/sie/es</td><td>ist</td></tr>
+<tr><td>wir</td><td>sind</td></tr>
+<tr><td>ihr</td><td>seid</td></tr>
+<tr><td>sie/Sie</td><td>sind</td></tr>
+</table>
+
+
+<b>Important:</b><br>
+All German nouns are capitalized.
+
+<b>Profession Examples:</b><br>
+Arzt / Ärztin  
+Ingenieur / Ingenieurin  
+Student / Studentin
+
+<!-- ================= LESSON 5 ================= -->
+<button class="collapsible">Lesson 5 – Modal Verbs (IMP)</button>
+<div class="content">
+
+<!-- ALL LESSON CONTENT HERE -->
+
+</div>
+
+<b>What are modal verbs?</b><br>
+They express ability, permission, desire, obligation.
+
+English:  
+I can swim.  
+I must study.
+
+German Structure:</b><br>
+Subject + Modal (position 2) + Object + Main Verb (END)
+
+Example:
+Ich kann Deutsch lernen.  
+Wir müssen Pizza essen.
+
+<b>Why does the main verb go at the end?</b><br>
+Because modal verbs push the second verb to final position.
+
+<h4>Modal Verbs Overview</h4>
+
+<table>
+<tr>
+<th>Infinitive</th>
+<th>ich</th>
+<th>du</th>
+<th>wir/sie</th>
+</tr>
+<tr><td>können</td><td>kann</td><td>kannst</td><td>können</td></tr>
+<tr><td>müssen</td><td>muss</td><td>musst</td><td>müssen</td></tr>
+<tr><td>wollen</td><td>will</td><td>willst</td><td>wollen</td></tr>
+<tr><td>dürfen</td><td>darf</td><td>darfst</td><td>dürfen</td></tr>
+<tr><td>sollen</td><td>soll</td><td>sollst</td><td>sollen</td></tr>
+<tr><td>möchten</td><td>möchte</td><td>möchtest</td><td>möchten</td></tr>
+</table>
+
+
+<hr>
+<hr>
+
+<!-- ================= LESSON 6 ================= -->
+<button class="collapsible">Lesson 6 – Future Tense & No continuous</button>
+<div class="content">
+
+<!-- ALL LESSON CONTENT HERE -->
+
+</div>
+
+<b>Future = werden + infinitive (end)</b><br>
+
+<h4>werden (Future)</h4>
+
+<table>
+<tr><th>Person</th><th>Form</th></tr>
+<tr><td>ich</td><td>werde</td></tr>
+<tr><td>du</td><td>wirst</td></tr>
+<tr><td>er/sie/es</td><td>wird</td></tr>
+<tr><td>wir</td><td>werden</td></tr>
+<tr><td>ihr</td><td>werdet</td></tr>
+<tr><td>sie/Sie</td><td>werden</td></tr>
+</table>
+
+
+Example:<br>
+Ich werde Deutsch lernen.
+
+<b>No Continuous Tense in German</b><br>
+
+English: I am playing  
+German: Ich spiele  
+
+English: I will be playing  
+German: Ich werde spielen  
+
+Golden Rule:<br>
+Helping verb in position 2  
+Main verb at END.
+<!-- ================= LESSON 7 ================= -->
+<button class="collapsible">Lesson 7 – Questions</button>
+<div class="content">
+
+<!-- ALL LESSON CONTENT HERE -->
+
+</div>
+
+<b>1. WH-Questions</b><br>
+
+Was – What  
+Wo – Where  
+Warum – Why  
+Wie – How  
+Wer – Who  
+Wann – When  
+
+Structure:
+W-word + Verb + Subject
+
+Example:
+Was spielst du?  
+Wo wohnen Sie?
+
+<b>2. Yes/No Questions</b><br>
+Remove W-word → Verb comes first
+
+Spielst du Cricket?  
+Trinkst du Tee?
+
+<hr>
+<hr>
+
+<!-- ================= LESSON 8 ================= -->
+<button class="collapsible">Lesson 8 – Sentence Expansion and WOrd order</button>
+<div class="content">
+
+<!-- ALL LESSON CONTENT HERE -->
+
+</div>
+
+Basic Rule:<br>
+Time – Manner – Place
+
+Example:<br>
+Ich spiele heute mit meinem Freund im Park.
+
+Time → heute  
+Manner → mit meinem Freund  
+Place → im Park  
+
+<b>Verb Always Position 2</b>
+
+Incorrect:<br>
+❌ Ich heute spiele Fußball.  
+
+Correct:<br>
+✅ Ich spiele heute Fußball.
+
+Why important?<br>
+German is strict about verb position.
+<!-- ================= LESSON 9–10 ================= -->
+<button class="collapsible">Lesson 9-10 – Articles and Cases</button>
+<div class="content">
+
+<!-- ALL LESSON CONTENT HERE -->
+
+</div>
+
+German nouns have gender:
+der (masculine)  
+die (feminine)  
+das (neuter)
+<h4>Definite Articles Table</h4>
+
+<table>
+<tr>
+<th>Case</th>
+<th>Masculine</th>
+<th>Feminine</th>
+<th>Neuter</th>
+<th>Plural</th>
+</tr>
+<tr>
+<td>Nominative</td>
+<td>der</td>
+<td>die</td>
+<td>das</td>
+<td>die</td>
+</tr>
+<tr>
+<td>Accusative</td>
+<td>den</td>
+<td>die</td>
+<td>das</td>
+<td>die</td>
+</tr>
+<tr>
+<td>Dative</td>
+<td>dem</td>
+<td>der</td>
+<td>dem</td>
+<td>den</td>
+</tr>
+</table>
+
+
+<b>Cases explain the role of a noun in a sentence.</b>
+
+Nominative → Subject  
+Accusative → Direct Object  
+Dative → Indirect Object  
+
+Example:
+Der Ball ist rot. (Subject → Nominative)  
+Ich habe den Ball. (Object → Accusative)  
+Ich spiele mit dem Ball. ("mit" → Dative)
+
+<b>Why does it change?</b><br>
+Because German grammar shows function through article change.
+
+<hr>
+
+<!-- ================= LESSON 11 ================= -->
+<button class="collapsible">Lesson 11 – Indefinite Articles And Possessive</button>
+<div class="content">
+
+<!-- ALL LESSON CONTENT HERE -->
+
+</div>
+
+ein = a/an  
+
+Masculine:
+Nom → ein  
+Acc → einen  
+Dat → einem  
+<h4>Indefinite Articles (ein)</h4>
+
+<table>
+<tr>
+<th>Case</th>
+<th>Masculine</th>
+<th>Feminine</th>
+<th>Neuter</th>
+</tr>
+<tr>
+<td>Nominative</td>
+<td>ein</td>
+<td>eine</td>
+<td>ein</td>
+</tr>
+<tr>
+<td>Accusative</td>
+<td>einen</td>
+<td>eine</td>
+<td>ein</td>
+</tr>
+<tr>
+<td>Dative</td>
+<td>einem</td>
+<td>einer</td>
+<td>einem</td>
+</tr>
+</table>
+
+
+Example:
+Ich habe einen Ball.  
+Ich spiele mit einem Ball.
+
+<b>Possessive Trick:</b><br>
+Use the same table as "ein"
+
+mein Ball  
+meinen Ball  
+meinem Ball  
+
+<hr>
+
+<!-- ================= LESSON 12 ================= -->
+<button class="collapsible">Lesson 12 – Dativ Prepostions</button>
+<div class="content">
+
+<!-- ALL LESSON CONTENT HERE -->
+
+</div>
+
+These ALWAYS take Dative:
+
+mit  
+nach  
+zu  
+aus  
+bei  
+seit  
+von  
+
+Example:
+Ich komme aus Indien.  
+Ich spiele mit dem Ball.
+
+<hr>
+
+<!-- ================= LESSON 13 ================= -->
+<button class="collapsible">Lesson 13 – Position Prepositions</button>
+<div class="content">
+
+<!-- ALL LESSON CONTENT HERE -->
+
+</div>
+
+an – on  
+auf – on top  
+unter – under  
+über – above  
+vor – in front  
+hinter – behind  
+neben – next to  
+zwischen – between  
+
+Example:
+Der Ball ist unter dem Tisch.
+
+<hr>
+
+<!-- ================= LESSON 14 ================= -->
+<button class="collapsible">Lesson 14 – Pronoun Cases</button>
+<div class="content">
+
+<!-- ALL LESSON CONTENT HERE -->
+
+</div>
+
+<h4>Pronoun Cases</h4>
+
+<table>
+<tr>
+<th>Case</th>
+<th>ich</th>
+<th>du</th>
+</tr>
+<tr>
+<td>Nominative</td>
+<td>ich</td>
+<td>du</td>
+</tr>
+<tr>
+<td>Accusative</td>
+<td>mich</td>
+<td>dich</td>
+</tr>
+<tr>
+<td>Dative</td>
+<td>mir</td>
+<td>dir</td>
+</tr>
+</table>
+
+
+Example:
+Er sieht mich.  
+Er gibt mir das Buch.
+
+<hr>
+
+<!-- ================= LESSON 15 ================= -->
+<button class="collapsible">Lesson 15 – Simple Past</button>
+<div class="content">
+
+<!-- ALL LESSON CONTENT HERE -->
+
+</div>
+
+<b>What is Präteritum?</b><br>
+It is the simple past tense.  
+Used mostly in writing and storytelling.
+
+Example:
+Ich war Student.  
+Ich hatte Hunger.
+
+<hr>
+
+<h4>1️⃣ sein (to be) – Past</h4>
+
+<table>
+<tr>
+<th>Person</th>
+<th>Form</th>
+</tr>
+<tr><td>ich</td><td>war</td></tr>
+<tr><td>du</td><td>warst</td></tr>
+<tr><td>er/sie/es</td><td>war</td></tr>
+<tr><td>wir</td><td>waren</td></tr>
+<tr><td>ihr</td><td>wart</td></tr>
+<tr><td>sie/Sie</td><td>waren</td></tr>
+</table>
+
+Example:
+Ich war müde.
+<h4>2️⃣ haben (to have) – Past</h4>
+
+<table>
+<tr>
+<th>Person</th>
+<th>Form</th>
+</tr>
+<tr><td>ich</td><td>hatte</td></tr>
+<tr><td>du</td><td>hattest</td></tr>
+<tr><td>er/sie/es</td><td>hatte</td></tr>
+<tr><td>wir</td><td>hatten</td></tr>
+<tr><td>ihr</td><td>hattet</td></tr>
+<tr><td>sie/Sie</td><td>hatten</td></tr>
+</table>
+
+Example:
+Ich hatte Zeit.
+<h4>3️⃣ Modal Verbs – Past Forms</h4>
+
+<table>
+<tr>
+<th>Infinitive</th>
+<th>Past (ich/er)</th>
+<th>du</th>
+<th>wir/sie</th>
+</tr>
+<tr><td>können</td><td>konnte</td><td>konntest</td><td>konnten</td></tr>
+<tr><td>wollen</td><td>wollte</td><td>wolltest</td><td>wollten</td></tr>
+<tr><td>müssen</td><td>musste</td><td>musstest</td><td>mussten</td></tr>
+<tr><td>dürfen</td><td>durfte</td><td>durftest</td><td>durften</td></tr>
+<tr><td>sollen</td><td>sollte</td><td>solltest</td><td>sollten</td></tr>
+</table>
+
+Example:
+Ich konnte Deutsch sprechen.  
+Wir mussten lernen.
+
+
+<hr>
+
+<h3>Practice Tip</h3>
+After every lesson, write 5 sentences using the new rule.
+Repetition builds fluency.
+
+</section>
+<!-- ================= A2 / B1 SECTION ================= -->
+
+<section id="a2b1" class="level">
+
+<h2>A2 / B1 Complete Lessons (Fully Detailed Explanation)</h2>
+
+<p>This section prepares you for strong B1 level writing and speaking. 
+Goal: Long sentences, correct word order, structured grammar.</p>
+
+<hr>
+
+<!-- ================= LESSON 1 ================= -->
+<h3 class="lesson-title">Lesson 1 – Conjunctions (Sentence Connecting)</h3>
+
+<b>Why Conjunctions Matter</b><br>
+At A1 level, you speak in short sentences:<br>
+Ich lerne Deutsch. Es ist wichtig.<br><br>
+
+At B1 level, you connect them:<br>
+Ich lerne Deutsch, weil es wichtig ist.<br><br>
+
+That difference = exam level improvement.
+
+<br><br>
+
+<b>1. Coordinating Conjunctions (No Word Order Change)</b>
+
+<table border="1" cellpadding="8">
+<tr><th>English</th><th>German</th><th>Verb Position</th></tr>
+<tr><td>and</td><td>und</td><td>Normal (Position 2)</td></tr>
+<tr><td>or</td><td>oder</td><td>Normal</td></tr>
+<tr><td>but</td><td>aber</td><td>Normal</td></tr>
+</table>
+
+Example:<br>
+Ich lerne Deutsch und ich arbeite.<br>
+Ich mag Tee, aber ich trinke Kaffee.
+
+<b>Important:</b> Verb stays in position 2.
+
+<hr>
+
+<b>2. Subordinate Conjunctions (Verb goes to END)</b>
+
+<table border="1" cellpadding="8">
+<tr><th>English</th><th>German</th><th>Rule</th></tr>
+<tr><td>because</td><td>weil</td><td>Verb at end</td></tr>
+<tr><td>although</td><td>obwohl</td><td>Verb at end</td></tr>
+<tr><td>when/if</td><td>wenn</td><td>Verb at end</td></tr>
+<tr><td>that</td><td>dass</td><td>Verb at end</td></tr>
+</table>
+
+Structure:<br>
+Main clause + comma + conjunction + subject + object + VERB (at end)
+
+Example Breakdown:<br>
+Ich lerne Deutsch, weil es wichtig ist.<br>
+(ist goes to end)
+
+Common Mistake:<br>
+❌ weil es ist wichtig<br>
+✅ weil es wichtig ist
+
+<hr>
+
+<!-- ================= LESSON 2 ================= -->
+<h3 class="lesson-title">Lesson 2 – Indirect Speech (Indirekte Rede)</h3>
+
+<b>Purpose:</b> Report what someone says without quoting directly.
+
+Direct:<br>
+Er sagt: "Ich komme."<br><br>
+
+Indirect:<br>
+Er sagt, dass er kommt.
+
+<br>
+
+<b>Connector Table</b>
+
+<table border="1" cellpadding="8">
+<tr><th>Sentence Type</th><th>Connector</th><th>Example</th></tr>
+<tr><td>Statement</td><td>dass</td><td>Ich denke, dass es gut ist.</td></tr>
+<tr><td>Yes/No Question</td><td>ob</td><td>Ich frage, ob er kommt.</td></tr>
+<tr><td>W-question</td><td>W-word only</td><td>Er fragt, wo du wohnst.</td></tr>
+</table>
+
+<b>Formation Steps:</b>
+
+1. Identify type  
+2. Add correct connector  
+3. Move verb to end  
+
+Example:<br>
+"Berlin ist schön."  
+→ Ich denke, dass Berlin schön ist.
+
+Common Exam Tip:<br>
+Use these starters:
+- Ich denke, dass…
+- Ich glaube, dass…
+- Ich bin der Meinung, dass…
+
+<hr>
+
+<!-- ================= LESSON 3 ================= -->
+<h3 class="lesson-title">Lesson 3 – Comparative & Superlative</h3>
+
+<b>Three Degrees</b>
+
+<table border="1" cellpadding="8">
+<tr><th>Degree</th><th>Formation</th><th>Example</th></tr>
+<tr><td>Positive</td><td>so … wie</td><td>Er ist so groß wie ich.</td></tr>
+<tr><td>Comparative</td><td>Adjective + er + als</td><td>Er ist größer als ich.</td></tr>
+<tr><td>Superlative</td><td>am + adjective + sten</td><td>Er ist am größten.</td></tr>
+</table>
+
+<b>Irregular Forms</b>
+
+<table border="1" cellpadding="8">
+<tr><th>Positive</th><th>Comparative</th><th>Superlative</th></tr>
+<tr><td>gut</td><td>besser</td><td>am besten</td></tr>
+<tr><td>viel</td><td>mehr</td><td>am meisten</td></tr>
+<tr><td>gern</td><td>lieber</td><td>am liebsten</td></tr>
+</table>
+
+Common Mistake:<br>
+❌ mehr groß<br>
+✅ größer
+
+<hr>
+
+<!-- ================= LESSON 4 ================= -->
+<h3 class="lesson-title">Lesson 4 – Imperatives (Commands)</h3>
+
+<b>Used for instructions.</b>
+
+<table border="1" cellpadding="8">
+<tr><th>Verb</th><th>du</th><th>ihr</th><th>Sie</th></tr>
+<tr><td>gehen</td><td>Geh!</td><td>Geht!</td><td>Gehen Sie!</td></tr>
+<tr><td>nehmen</td><td>Nimm!</td><td>Nehmt!</td><td>Nehmen Sie!</td></tr>
+<tr><td>sehen</td><td>Sieh!</td><td>Seht!</td><td>Sehen Sie!</td></tr>
+</table>
+
+Special verbs:<br>
+sein → Sei! / Seien Sie!<br>
+haben → Hab! / Haben Sie!
+
+<hr>
+
+<!-- ================= LESSON 5 ================= -->
+<h3 class="lesson-title">Lesson 5 – Two-Part Connectors</h3>
+
+Used to sound advanced.
+
+<table border="1" cellpadding="8">
+<tr><th>English</th><th>German</th></tr>
+<tr><td>not only … but also</td><td>nicht nur … sondern auch</td></tr>
+<tr><td>either … or</td><td>entweder … oder</td></tr>
+<tr><td>neither … nor</td><td>weder … noch</td></tr>
+<tr><td>on one hand … on the other hand</td><td>einerseits … andererseits</td></tr>
+</table>
+
+Example:<br>
+Ich lerne nicht nur Deutsch, sondern auch Englisch.
+
+<hr>
+
+<!-- ================= LESSON 6 ================= -->
+<h3 class="lesson-title">Lesson 6 – zu + Infinitiv</h3>
+
+Structure:<br>
+Main clause + comma + zu + infinitive (end)
+
+Example:<br>
+Ich versuche, Deutsch zu lernen.
+
+Not used with modal verbs:<br>
+❌ Ich kann Deutsch zu lernen<br>
+✅ Ich kann Deutsch lernen
+
+<hr>
+
+<!-- ================= LESSON 7 ================= -->
+<h3 class="lesson-title">Lesson 7 – Genitive (Possession)</h3>
+
+Question word: Wessen?
+
+<table border="1" cellpadding="8">
+<tr><th>Gender</th><th>Article</th><th>Noun Change</th></tr>
+<tr><td>Masculine</td><td>des</td><td>+ s/es</td></tr>
+<tr><td>Neuter</td><td>des</td><td>+ s/es</td></tr>
+<tr><td>Feminine</td><td>der</td><td>No change</td></tr>
+<tr><td>Plural</td><td>der</td><td>No change</td></tr>
+</table>
+
+Example:<br>
+Das Auto des Vaters ist rot.
+
+<hr>
+
+<!-- ================= LESSON 8 ================= -->
+<h3 class="lesson-title">Lesson 8 – Negation (kein vs nicht)</h3>
+
+<table border="1" cellpadding="8">
+<tr><th>Word</th><th>Use</th><th>Example</th></tr>
+<tr><td>kein</td><td>Negates noun</td><td>Ich habe kein Geld.</td></tr>
+<tr><td>nicht</td><td>Negates verb/adjective</td><td>Ich komme nicht.</td></tr>
+</table>
+
+Placement Rule:<br>
+Nicht usually before the element you negate.
+
+<hr>
+
+<!-- ================= LESSON 9 ================= -->
+<h3 class="lesson-title">Lesson 9 – Adjective Endings</h3>
+
+Adjectives change based on case and gender.
+
+<table border="1" cellpadding="8">
+<tr><th>Case</th><th>Masc</th><th>Fem</th><th>Neut</th><th>Plural</th></tr>
+<tr><td>Nominative</td><td>-er</td><td>-e</td><td>-es</td><td>-e</td></tr>
+<tr><td>Accusative</td><td>-en</td><td>-e</td><td>-es</td><td>-e</td></tr>
+<tr><td>Dative</td><td>-em</td><td>-er</td><td>-em</td><td>-en</td></tr>
+</table>
+
+Example:<br>
+Ich spiele mit einem roten Ball.
+
+<hr>
+
+<!-- ================= LESSON 10 ================= -->
+<h3 class="lesson-title">Lesson 10 – Verbs with Prepositions</h3>
+
+These verbs always use fixed prepositions.
+
+<table border="1" cellpadding="8">
+<tr><th>Verb</th><th>Preposition</th><th>Case</th></tr>
+<tr><td>warten</td><td>auf</td><td>Acc</td></tr>
+<tr><td>suchen</td><td>nach</td><td>Dat</td></tr>
+<tr><td>abhängen</td><td>von</td><td>Dat</td></tr>
+<tr><td>glauben</td><td>an</td><td>Acc</td></tr>
+</table>
+
+Example:<br>
+Ich warte auf den Bus.
+
+<hr>
+
+<!-- ================= LESSON 11 ================= -->
+<h3 class="lesson-title">Lesson 11 – Reflexive Verbs</h3>
+
+<table border="1" cellpadding="8">
+<tr><th>Subject</th><th>Reflexive</th></tr>
+<tr><td>ich</td><td>mich</td></tr>
+<tr><td>du</td><td>dich</td></tr>
+<tr><td>er/sie/es</td><td>sich</td></tr>
+<tr><td>wir</td><td>uns</td></tr>
+<tr><td>ihr</td><td>euch</td></tr>
+<tr><td>sie/Sie</td><td>sich</td></tr>
+</table>
+
+Example:<br>
+Ich interessiere mich für Deutsch.
+
+<hr>
+
+<h3>Final B1 Rule</h3>
+Every paragraph should include:<br>
+✔ One subordinate clause<br>
+✔ One connector<br>
+✔ One adjective ending<br>
+✔ One prepositional verb<br>
+✔ One opinion sentence (Ich denke, dass…)
+
+That guarantees strong B1 performance.
+
+</section>
+
+<script>
+    function enterSite(){
+  document.getElementById("landingPopup").style.display = "none";
+}
+
+    function submitFullA1(){
+    let score = 0;
+    for(let i=1;i<=20;i++){
+        let answer = document.querySelector('input[name="a1q'+i+'"]:checked');
+        if(answer && answer.value==="1") score++;
+    }
+    document.getElementById("a1result").innerHTML = "Final Score: "+score+"/20";
+    localStorage.setItem("a1Score", score+"/20");
+    localStorage.setItem("tests",(parseInt(localStorage.getItem("tests")||0)+1));
+    loadDashboard();
+}
+
+function submitFullB1(){
+    let score = 0;
+    for(let i=1;i<=20;i++){
+        let answer = document.querySelector('input[name="b1q'+i+'"]:checked');
+        if(answer && answer.value==="1") score++;
+    }
+    document.getElementById("b1result").innerHTML = "Final Score: "+score+"/20";
+    localStorage.setItem("b1Score", score+"/20");
+    localStorage.setItem("tests",(parseInt(localStorage.getItem("tests")||0)+1));
+    loadDashboard();
+}
+
+function showSection(id){
+    document.querySelectorAll("section").forEach(sec=>sec.classList.remove("active"));
+    document.getElementById(id).classList.add("active");
+}
+
+/* Collapsible Logic */
+document.addEventListener("DOMContentLoaded", function(){
+    const collapsibles = document.querySelectorAll(".collapsible");
+    
+    collapsibles.forEach(btn=>{
+        btn.addEventListener("click", function(){
+            this.classList.toggle("active");
+            const content = this.nextElementSibling;
+            
+            if(content.style.maxHeight){
+                content.style.maxHeight = null;
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+            }
+        });
+    });
+
+    loadDashboard();
+});
+
+/* ===== A1 TEST ===== */
+function submitA1(){
+    let score = 0;
+
+    if(document.querySelector('input[name="q1"]:checked')?.value === "a") score++;
+    if(document.querySelector('input[name="q2"]:checked')?.value === "a") score++;
+    if(document.querySelector('input[name="q3"]:checked')?.value === "a") score++;
+
+    document.getElementById("a1result").innerHTML = "Score: " + score + "/20";
+
+    localStorage.setItem("a1Score", score + "/3");
+    localStorage.setItem("tests", (parseInt(localStorage.getItem("tests") || 0) + 1));
+
+    loadDashboard();
+}
+
+/* ===== B1 TEST ===== */
+function submitB1(){
+    let score = 0;
+
+    if(document.querySelector('input[name="b1q1"]:checked')?.value === "a") score++;
+    if(document.querySelector('input[name="b1q2"]:checked')?.value === "a") score++;
+    if(document.querySelector('input[name="b1q3"]:checked')?.value === "a") score++;
+
+    document.getElementById("b1result").innerHTML = "Score: " + score + "/10";
+
+    localStorage.setItem("b1Score", score + "/10");
+    localStorage.setItem("tests", (parseInt(localStorage.getItem("tests") || 0) + 1));
+
+    loadDashboard();
+}
+
+/* ===== Dashboard Logic ===== */
+function loadDashboard(){
+    document.getElementById("a1Score").innerText = localStorage.getItem("a1Score") || "Not Attempted";
+    document.getElementById("b1Score").innerText = localStorage.getItem("b1Score") || "Not Attempted";
+    document.getElementById("totalTests").innerText = localStorage.getItem("tests") || 0;
+}
+
+function resetProgress(){
+    localStorage.clear();
+    loadDashboard();
+}
+</script>
+
+
+</body>
+</html>
