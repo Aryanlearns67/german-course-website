@@ -311,56 +311,7 @@ section {background:white; margin:20px; padding:20px; border-radius:10px;}
 hr {margin:20px 0;}
 </style>
 </head>
-  <script type="module">
 
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-import { getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-
-const firebaseConfig = {
-apiKey: "YOUR_API_KEY",
-authDomain: "YOUR_PROJECT.firebaseapp.com",
-projectId: "YOUR_PROJECT_ID",
-storageBucket: "YOUR_PROJECT.appspot.com",
-messagingSenderId: "XXXX",
-appId: "XXXX"
-};
-
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-
-async function addReview(){
-
-let name=document.getElementById("reviewName").value;
-let text=document.getElementById("reviewText").value;
-
-await addDoc(collection(db,"reviews"),{
-name:name,
-text:text
-});
-
-loadReviews();
-}
-
-async function loadReviews(){
-
-let querySnapshot = await getDocs(collection(db,"reviews"));
-
-let html="";
-
-querySnapshot.forEach((doc)=>{
-let r=doc.data();
-html+=`<div class="review"><b>${r.name}</b><br>${r.text}</div>`;
-});
-
-document.getElementById("reviewList").innerHTML=html;
-
-}
-
-loadReviews();
-
-window.addReview=addReview;
-
-</script>
 
 <body>
 <!-- German Flag Landing Page -->
@@ -1625,7 +1576,56 @@ function resetProgress(){
     loadDashboard();
 }
 </script>
+<script type="module">
 
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+const firebaseConfig = {
+apiKey: "YOUR_API_KEY",
+authDomain: "YOUR_PROJECT.firebaseapp.com",
+projectId: "YOUR_PROJECT_ID",
+storageBucket: "YOUR_PROJECT.appspot.com",
+messagingSenderId: "XXXX",
+appId: "XXXX"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+async function addReview(){
+
+let name=document.getElementById("reviewName").value;
+let text=document.getElementById("reviewText").value;
+
+await addDoc(collection(db,"reviews"),{
+name:name,
+text:text
+});
+
+loadReviews();
+}
+
+async function loadReviews(){
+
+let querySnapshot = await getDocs(collection(db,"reviews"));
+
+let html="";
+
+querySnapshot.forEach((doc)=>{
+let r=doc.data();
+html+=`<div class="review"><b>${r.name}</b><br>${r.text}</div>`;
+});
+
+document.getElementById("reviewList").innerHTML=html;
+
+}
+
+loadReviews();
+
+window.addReview=addReview;
+
+</script>
 
 </body>
 </html>
